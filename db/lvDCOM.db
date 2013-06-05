@@ -1,0 +1,29 @@
+record(ai, "$(P)COUNTS")
+{
+   field(DTYP, "asynFloat64")
+   field(INP,  "@asyn(frontpanel,0,0)counts")
+   field(PREC, "3")
+   field(SCAN, ".1 second")
+}
+
+record(bi, "$(P)COUNTING")
+{
+   field(DTYP, "asynInt32")
+   field(INP,  "@asyn(frontpanel,0,0)counting")
+   field(ZNAM, "FALSE")
+   field(ONAM, "TRUE")
+   field(SCAN, ".1 second")
+}
+
+record(ao, "$(P)START")
+{
+   field(DTYP, "asynInt32")
+   field(OUT,  "@asyn(frontpanel,0,0)start")
+}
+
+record(ao, "$(P)STOP")
+{
+   field(DTYP, "asynInt32")
+   field(OUT,  "@asyn(frontpanel,0,0)stop")
+}
+

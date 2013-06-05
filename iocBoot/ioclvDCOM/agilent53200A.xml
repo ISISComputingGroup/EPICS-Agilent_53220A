@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lvinput>
+   <!--
+        the exint Vi is an ISIS Vi that is used as a proxy Vi for "set" operations when extint="true" is specified below.
+		If your labview front panels are not "labview event driven" then you do not need to worry about this.
+		If, however, they are (i.e. you would require the "signalling" version of the setControlValue() method) then contact
+		ISIS computing group
+		
+		path is parsed using EPICS macEnvExpand() and so can contain epics environment variables
+   -->
+   <extint path="c:/LabVIEW Modules/Common/External Interface/External Interface.llb/External Interface - Set Value.vi" />
+   
+   <!-- this will be mapped (via lvDCOMConfigure()) to an asyn driver port name that can then be specified in an epics record -->
+   <section name="frontpanel"> 
+
+    <!-- path to LabVIEW vi file we are using, which is parsed using EPICS macEnvExpand() and so can contain epics environment variables -->
+    <vi path="C:/LabVIEW Modules/Drivers/Agilent 53220A/Agilent 53220A - System Functions.llb/Agilent 53220A - Front Panel.vi"> 
+
+	<!--
+	      <param> defines as asyn driver parameter that can be specified in an epics record to access data on the labview Vi. The <set>
+                  and <read> items specify the name of the appropriate control/indicator on the LabVIEW Vi to access for these
+                  operations. The "method" attribute controls the underlying method by which the new value is communicated, 
+				  currently only "GCV" for reads (use DCOM exposed getControlValue()) and "SCV" for sets (use DCOM exposed setControlValue()) 
+				  are supported. The meaning and use of the extint attribute has been covered earlier.
+	  -->
+	  <param name="counts" type="float64"> 
+        <read method="GCV" target="Counts" />  
+	  </param>
+	
+      <param name="counting" type="int32"> 
+        <read method="GCV" target="Counting" />
+      </param>
+
+	  <param name="start" type="int32"> 
+        <read method="GCV" target="Start Counting" />  
+        <set method="SCV" extint="1" target="Start Counting" /> 
+	  </param>
+      
+        <param name="stop" type="int32"> 
+        <read method="GCV" target="Stop Counting" />  
+        <set method="SCV" extint="1" target="Stop Counting" /> 
+	  </param>
+      
+	</vi>
+	 
+  </section>
+  
+</lvinput>

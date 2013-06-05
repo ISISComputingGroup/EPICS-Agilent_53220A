@@ -1,0 +1,6 @@
+epicsEnvSet("ARCH","windows-x64")
+epicsEnvSet("IOC","ioclvDCOM")
+epicsEnvSet("TOP","c:/EPICS_PILOT/ISIS/Agilent_53220A")
+epicsEnvSet("EPICS_BASE","c:/EPICS_PILOT/base/3-14-12-2")
+epicsEnvSet("ASYN","c:/EPICS_PILOT/support/asyn/4-18")
+epicsEnvSet("SUPPORT","c:/EPICS_PILOT/support")
