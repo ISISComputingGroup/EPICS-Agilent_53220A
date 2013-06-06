@@ -20,7 +20,8 @@ cd ${TOP}/iocBoot/${IOC}
 ##
 ## the "options" argument is a combination of the following flags (as per the #lvDCOMOptions enum in lvDCOMInterface.h)
 ##    viWarnIfIdle=1, viStartIfIdle=2, viStopOnExitIfStarted=4, viAlwaysStopOnExit=8
-lvDCOMConfigure("frontpanel", "frontpanel", "$(TOP)/iocBoot/ioclvDCOM/agilent53200A.xml", "", 6)
+lvDCOMConfigure("frontpanel", "frontpanel", "$(TOP)/iocBoot/ioclvDCOM/agilent53200A.xml", "ndxchipir", 6, "", "spudulike", "reliablebeam")
+#lvDCOMConfigure("frontpanel", "frontpanel", "$(TOP)/iocBoot/ioclvDCOM/agilent53200A.xml", "", 6)
 #lvDCOMConfigure("ex1", "example", "$(TOP)/lvDCOMApp/src/examples/example_lvinput.xml", "", 6, "LvDCOMex.Application")
 #lvDCOMConfigure("ex1", "example", "$(TOP)/lvDCOMApp/src/examples/example_lvinput.xml", "ndxtestfaa", 6, "", "username", "password")
 
