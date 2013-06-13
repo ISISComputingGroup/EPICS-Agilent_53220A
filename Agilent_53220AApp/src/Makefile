@@ -14,7 +14,7 @@ DBD += Agilent_53220A.dbd
 
 # Agilent_53220A.dbd will be made up from these files:
 Agilent_53220A_DBD += base.dbd
-Agilent_53220A_DBD += asyn.dbd
+Agilent_53220A_DBD += lvDCOM.dbd
 
 # Include dbd files from all support applications:
 #Agilent_53220A_DBD += xxx.dbd
