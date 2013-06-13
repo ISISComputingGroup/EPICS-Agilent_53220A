@@ -1,12 +1,15 @@
-#!../../bin/windows-x64/lvdcom
+#!../../bin/windows-x64/Agilent_53220A
+
+## You may have to change Agilent_53220A to something else
+## everywhere it appears in this file
 
 < envPaths
 
 cd ${TOP}
 
 ## Register all support components
-dbLoadDatabase "dbd/lvDCOM.dbd"
-lvDCOM_registerRecordDeviceDriver pdbbase
+dbLoadDatabase "dbd/Agilent_53220A.dbd"
+Agilent_53220A_registerRecordDeviceDriver pdbbase
 
 cd ${TOP}/iocBoot/${IOC}
 
@@ -22,12 +25,10 @@ cd ${TOP}/iocBoot/${IOC}
 ##    viWarnIfIdle=1, viStartIfIdle=2, viStopOnExitIfStarted=4, viAlwaysStopOnExit=8
 lvDCOMConfigure("frontpanel", "frontpanel", "$(TOP)/iocBoot/ioclvDCOM/agilent53200A.xml", "ndxchipir", 6, "", "spudulike", "reliablebeam")
 #lvDCOMConfigure("frontpanel", "frontpanel", "$(TOP)/iocBoot/ioclvDCOM/agilent53200A.xml", "", 6)
-#lvDCOMConfigure("ex1", "example", "$(TOP)/lvDCOMApp/src/examples/example_lvinput.xml", "", 6, "LvDCOMex.Application")
-#lvDCOMConfigure("ex1", "example", "$(TOP)/lvDCOMApp/src/examples/example_lvinput.xml", "ndxtestfaa", 6, "", "username", "password")
 
-dbLoadRecords("$(TOP)/db/lvDCOM.db","P=INST:SE:AG53220A:")
-#dbLoadRecords("$(ASYN)/db/asynRecord.db","P=ex1:,R=asyn1,PORT=ex1,ADDR=0,OMAX=80,IMAX=80")
+dbLoadRecords("$(TOP)/db/Agilent_53220A.db","P=INST:SE:AG53220A:")
 #asynSetTraceMask("frontpanel",0,0xff)
 asynSetTraceIOMask("frontpanel",0,0x2)
 
 iocInit
+
