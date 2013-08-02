@@ -5,6 +5,9 @@
 
 < envPaths
 
+epicsEnvSet "IOCNAME" "$(P=$(MYPVPREFIX))AGILENT_53220A"
+epicsEnvSet "IOCSTATS_DB" "$(DEVIOCSTATS)/db/iocAdminSoft.db"
+
 cd ${TOP}
 
 ## Register all support components
@@ -26,7 +29,9 @@ cd ${TOP}/iocBoot/${IOC}
 lvDCOMConfigure("frontpanel", "frontpanel", "$(TOP)/Agilent_53220AApp/protocol/agilent53200A.xml", "ndxchipir", 6, "", "spudulike", "reliablebeam")
 #lvDCOMConfigure("frontpanel", "frontpanel", "$(TOP)/Agilent_53220AApp/protocol/agilent53200A.xml", "", 6)
 
-dbLoadRecords("$(TOP)/db/Agilent_53220A.db","P=AG53220A:")
+dbLoadRecords("$(TOP)/db/Agilent_53220A.db","P=$(IOCNAME):")
+dbLoadRecords("$(IOCSTATS_DB)","IOC=$(IOCNAME)")
+
 #asynSetTraceMask("frontpanel",0,0xff)
 asynSetTraceIOMask("frontpanel",0,0x2)
 
