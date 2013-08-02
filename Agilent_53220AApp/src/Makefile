@@ -17,10 +17,10 @@ Agilent_53220A_DBD += base.dbd
 Agilent_53220A_DBD += lvDCOM.dbd
 
 # Include dbd files from all support applications:
-#Agilent_53220A_DBD += xxx.dbd
+Agilent_53220A_DBD += devIocStats.dbd
 
 # Add all the support libraries needed by this IOC
-#Agilent_53220A_LIBS += xxx
+Agilent_53220A_LIBS += devIocStats
 
 # Agilent_53220A_registerRecordDeviceDriver.cpp derives from Agilent_53220A.dbd
 Agilent_53220A_SRCS += Agilent_53220A_registerRecordDeviceDriver.cpp
