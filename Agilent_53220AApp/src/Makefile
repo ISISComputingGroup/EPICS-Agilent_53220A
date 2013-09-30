@@ -32,7 +32,7 @@ Agilent_53220A_SRCS_vxWorks += -nil-
 # Add support from base/src/vxWorks if needed
 #Agilent_53220A_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
-Agilent_53220A_LIBS +=  lvDCOMSupport asyn autosave
+Agilent_53220A_LIBS +=  lvDCOM asyn autosave
 Agilent_53220A_SYS_LIBS_WIN32 += msxml2
 
 # Finally link to the EPICS Base libraries
