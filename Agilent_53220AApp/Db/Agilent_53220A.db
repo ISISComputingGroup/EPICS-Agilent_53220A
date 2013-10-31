@@ -15,15 +15,29 @@ record(bi, "$(P)COUNTING")
    field(SCAN, ".1 second")
 }
 
-record(ao, "$(P)START")
+record(bo, "$(P)START:SP")
 {
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn(frontpanel,0,0)start")
 }
 
-record(ao, "$(P)STOP")
+record(bi, "$(P)START:SP:RBV")
+{
+   field(DTYP, "asynInt32")
+   field(INP,  "@asyn(frontpanel,0,0)start")
+   field(SCAN, ".1 second")
+}
+
+record(bo, "$(P)STOP:SP")
 {
    field(DTYP, "asynInt32")
    field(OUT,  "@asyn(frontpanel,0,0)stop")
+}
+
+record(bi, "$(P)STOP:SP:RBV")
+{
+   field(DTYP, "asynInt32")
+   field(INP,  "@asyn(frontpanel,0,0)stop")
+   field(SCAN, ".1 second")
 }
 
